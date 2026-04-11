@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApuridStudio | Portfolio de Desarrollo</title>
+    <meta name="description" content="Portfolio de ApuridStudio, expertos en desarrollo de aplicaciones lectoras de cómics y libros con IA.">
+    <link rel="stylesheet" href="./src/index.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">ApuridStudio</a>
+            <div class="nav-links">
+                <a href="#proyectos">Proyectos</a>
+                <a href="#experiencia">Especialidad</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content animate">
+            <h1>Innovación en Lectura Digital</h1>
+            <p>Transformamos la forma en que el mundo interactúa con el contenido. Especialistas en aplicaciones de lectura y herramientas de IA.</p>
+            <a href="#proyectos" class="btn btn-primary">Ver Portafolio</a>
+        </div>
+    </header>
+
+    <section id="proyectos" class="container">
+        <h2>Nuestros Proyectos</h2>
+        <div class="grid">
+            <!-- Proyecto 1 -->
+            <div class="card animate" style="animation-delay: 0.2s;">
+                <img src="./assets/cimok-reader.png" alt="CIMOK Reader Mockup" class="card-img">
+                <div class="card-body">
+                    <span class="tag">CIMOK | Historias Digitales</span>
+                    <h3>CIMOK</h3>
+                    <p>Lector premium de cómics con estadísticas en tiempo real, seguimiento de lectura y una interfaz optimizada para dispositivos móviles.</p>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="card animate" style="animation-delay: 0.4s;">
+                <img src="./assets/ai-book-reader.png" alt="AI Book Reader Mockup" class="card-img">
+                <div class="card-body">
+                    <span class="tag">Education / AI</span>
+                    <h3>Lector de Libros IA</h3>
+                    <p>Plataforma de lectura enriquecida con funciones de inteligencia artificial para resúmenes y asistencia inteligente.</p>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="card animate" style="animation-delay: 0.6s;">
+                <img src="./assets/coming-soon.png" alt="Coming Soon Placeholder" class="card-img">
+                <div class="card-body">
+                    <span class="tag">Innovation</span>
+                    <h3>Proyecto X</h3>
+                    <p>En desarrollo. Una nueva solución centrada en la experiencia de usuario y tecnología moderna.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="animate">
+            <h2>Nuestra Especialidad</h2>
+            <p>En ApuridStudio, nos enfocamos en aplicaciones que no solo funcionan, sino que cautivan. Dominamos el desarrollo responsive y la integración de IA para crear productos premium.</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="container">
+        <h2>¿Tienes una idea?</h2>
+        <p style="text-align: center;">Hablemos sobre cómo podemos ayudarte a construir tu próximo gran proyecto.</p>
+        
+        <form class="form-simple animate">
+            <div class="input-group">
+                <label>Nombre</label>
+                <input type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="input-group">
+                <label>Mensaje</label>
+                <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ApuridStudio. Todos los derechos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem;">Dominio gestionado en Cloudflare | CI/CD Ready</p>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
