@@ -227,9 +227,10 @@ footer {
 /* Developers Section */
 .dev-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  gap: 3.5rem;
+  margin-top: 3rem;
 }
 
 .dev-card {
@@ -270,7 +271,7 @@ footer {
   z-index: 1;
 }
 
-.dev-img {
+.dev-img, .dev-placeholder {
   width: 280px;
   height: 280px;
   object-fit: cover;
@@ -279,7 +280,43 @@ footer {
   transition: var(--transition);
 }
 
-.dev-card:hover .dev-img {
+.dev-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-card), var(--border));
+  color: var(--accent);
+  font-size: 4rem;
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.dev-placeholder::after {
+  content: 'SIN IMAGEN';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  font-size: 0.7rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.dev-placeholder span {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.dev-card:hover .dev-img, .dev-card:hover .dev-placeholder {
   border-color: var(--accent);
   transform: scale(1.02);
 }
