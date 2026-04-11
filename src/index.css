@@ -223,3 +223,148 @@ footer {
 .animate {
   animation: fadeIn 1s ease forwards;
 }
+
+/* Developers Section */
+.dev-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.dev-card {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 900px;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dev-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.dev-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 50px rgba(251, 191, 36, 0.1);
+}
+
+.dev-image-container {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.dev-img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  transition: var(--transition);
+}
+
+.dev-card:hover .dev-img {
+  border-color: var(--accent);
+  transform: scale(1.02);
+}
+
+.dev-badge {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  background: var(--accent);
+  color: var(--bg-color);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 2;
+  transform: rotate(3deg);
+}
+
+.dev-info {
+  flex-grow: 1;
+  z-index: 1;
+}
+
+.dev-info h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dev-bio {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+}
+
+.dev-skills {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.skill-pill {
+  padding: 0.4rem 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.skill-pill:hover {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .dev-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .dev-image-container {
+    margin-bottom: 1rem;
+  }
+
+  .dev-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .dev-badge {
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%) rotate(0);
+  }
+
+  .dev-skills {
+    justify-content: center;
+  }
+}
