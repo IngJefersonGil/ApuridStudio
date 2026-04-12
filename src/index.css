@@ -90,6 +90,37 @@ nav {
   color: var(--accent);
 }
 
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 5px;
+}
+
+.mobile-menu-toggle span {
+  width: 28px;
+  height: 2px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Hero Section */
 .hero {
   height: 90vh;
@@ -172,6 +203,29 @@ nav {
   margin-bottom: 1rem;
 }
 
+.project-lead {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lead-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.lead-name {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* Contact Section */
 #contact {
   text-align: center;
@@ -212,7 +266,37 @@ footer {
 @media (max-width: 768px) {
   h1 { font-size: 2.5rem; }
   h2 { font-size: 1.8rem; }
-  .nav-links { display: none; }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(13, 17, 23, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: var(--transition);
+    z-index: 999;
+    border-left: 1px solid var(--border);
+    padding: 2rem;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    margin: 0;
+    font-size: 1.5rem;
+  }
 }
 
 @keyframes fadeIn {
@@ -323,17 +407,17 @@ footer {
 
 .dev-badge {
   position: absolute;
-  bottom: -15px;
-  right: -15px;
+  bottom: 10px;
+  right: 10px;
   background: var(--accent);
   color: var(--bg-color);
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
   font-weight: 800;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 2;
-  transform: rotate(3deg);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .dev-info {
@@ -396,9 +480,11 @@ footer {
   }
 
   .dev-badge {
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%) rotate(0);
+    bottom: 8px;
+    right: 8px;
+    transform: none;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
   }
 
   .dev-skills {
