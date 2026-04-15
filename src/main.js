@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerLogo = document.getElementById('footer-logo');
 
     const updateLogos = (theme) => {
-        const logoSrc = theme === 'light' ? 'assets/ApuridLogo.svg' : 'assets/ApuridLogoModoOscuro.svg';
+        const logoSrc = theme === 'light' ? '/ApuridLogo.svg' : '/ApuridLogoModoOscuro.svg';
         if (mainLogo) mainLogo.src = logoSrc;
         if (footerLogo) footerLogo.src = logoSrc;
     };
