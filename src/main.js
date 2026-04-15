@@ -1,72 +1,165 @@
-// Simple interactions for ApuridStudio Portfolio
-
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('ApuridStudio Portfolio Loaded');
-
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-
-    // Smooth scroll for anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Form submission handle
-    const form = document.querySelector('.form-simple');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Enviando...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.');
-                form.reset();
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }, 1000);
-        });
-    }
-
-    // Scroll Reveal implementation
+    // Reveal animations using highly optimized IntersectionObserver
+    const revealElements = document.querySelectorAll('.reveal');
+    
     const observerOptions = {
-        threshold: 0.1
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Stop observing once revealed for max performance
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.animate').forEach(el => {
-        observer.observe(el);
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Navbar scroll effect optimized with requestAnimationFrame
+    const navbar = document.querySelector('.navbar');
+    let isTicking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!isTicking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                isTicking = false;
+            });
+            isTicking = true;
+        }
+    }, { passive: true });
+
+    // Smooth scroll for anchors with custom easing (easeOutQuart)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#' && targetId.length > 1) {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = targetPosition - 80;
+
+                    const startPosition = window.pageYOffset;
+                    const distance = offsetPosition - startPosition;
+                    const duration = 1200;
+                    let start = null;
+
+                    const easeOutQuint = (time) => 1 - Math.pow(1 - time, 5);
+
+                    function animation(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        let progress = Math.min(timeElapsed / duration, 1);
+                        let ease = easeOutQuint(progress);
+
+                        window.scrollTo(0, startPosition + distance * ease);
+
+                        if (timeElapsed < duration) {
+                            window.requestAnimationFrame(animation);
+                        }
+                    }
+
+                    window.requestAnimationFrame(animation);
+                    
+                    // Note: URL hash update optional
+                    // history.pushState(null, null, targetId);
+                }
+            }
+        });
     });
+
+    // Active Nav State based on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-links .nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(item => {
+            item.style.fontWeight = '400';
+            if (item.getAttribute('href') === `#${current}`) {
+                item.style.fontWeight = '600';
+                item.style.color = 'var(--text-primary)';
+            } else if (!item.classList.contains('btn-primary')) {
+                item.style.color = 'var(--text-secondary)';
+            }
+        });
+    });
+
+    // Automatic Theme Detection (System Preference)
+    const rootEl = document.documentElement;
+    const mainLogo = document.getElementById('main-logo');
+    const footerLogo = document.getElementById('footer-logo');
+
+    const updateLogos = (theme) => {
+        const logoSrc = theme === 'light' ? 'assets/ApuridLogo.svg' : 'assets/ApuridLogoModoOscuro.svg';
+        if (mainLogo) mainLogo.src = logoSrc;
+        if (footerLogo) footerLogo.src = logoSrc;
+    };
+
+    const setTheme = (isDark) => {
+        if (isDark) {
+            rootEl.removeAttribute('data-theme');
+            updateLogos('dark');
+        } else {
+            rootEl.setAttribute('data-theme', 'light');
+            updateLogos('light');
+        }
+    };
+
+    // Initialize based on system preference
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setTheme(darkModeMediaQuery.matches);
+
+    // Listen for system theme changes
+    darkModeMediaQuery.addEventListener('change', (e) => {
+        setTheme(e.matches);
+    });
+
+    // Mobile Menu Toggle Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    if (menuToggle && mobileOverlay) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            
+            // Lock body scroll when menu is open
+            if (mobileOverlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
 });
+

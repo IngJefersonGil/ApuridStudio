@@ -4,187 +4,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ApuridStudio | Jeferson Gil - Software Engineer Portfolio</title>
+    <title>Apurid Studios | Engineering the Future of Apps</title>
     <meta name="description"
-        content="Portfolio de ApuridStudio y Jeferson Gil. Especialistas en desarrollo de aplicaciones lectoras de cómics y libros potenciadas con Inteligencia Artificial.">
-    <link rel="canonical" href="https://www.apuridstudio.com/">
-    <link rel="stylesheet" href="./src/index.css">
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.apuridstudio.com/">
-    <meta property="og:title" content="ApuridStudio | Software Engineering & AI Solutions">
-    <meta property="og:description"
-        content="Explora mis proyectos en desarrollo de software, ciberseguridad y apps lectoras de cómics con IA.">
-    <meta property="og:image" content="https://www.apuridstudio.com/assets/comic-reader.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.apuridstudio.com/">
-    <meta property="twitter:title" content="ApuridStudio | Jeferson Gil">
-    <meta property="twitter:description" content="Desarrollo de aplicaciones y soluciones de ingeniería de software.">
-    <meta property="twitter:image" content="https://www.apuridstudio.com/assets/comic-reader.png">
-
+        content="Apurid Studios is a premier app development company creating high-performance, beautiful applications.">
+    <link rel="icon" type="image/png" href="/favicon_optimized.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
 </head>
 
-
 <body>
-    <nav>
-        <div class="container nav-content">
-            <a href="#" class="logo">ApuridStudio</a>
-            <div class="nav-links">
-                <a href="#proyectos">Proyectos</a>
-                <a href="#experiencia">Especialidad</a>
-                <a href="#desarrolladores">Desarrolladores</a>
-                <a href="#contacto">Contacto</a>
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <a href="#home" class="logo">
+                    <img id="main-logo" src="assets/ApuridLogoModoOscuro.svg" alt="Apurid Studios Logo" class="logo-img">
+                </a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Abrir menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="container hero-content animate">
-            <h1>Innovación en Lectura Digital</h1>
-            <p>Transformamos la forma en que el mundo interactúa con el contenido. Especialistas en aplicaciones de
-                lectura y herramientas de IA.</p>
-            <a href="#proyectos" class="btn btn-primary">Ver Portafolio</a>
+            <div class="navbar-right">
+                <nav class="nav-links">
+                    <a href="#home" class="nav-link" data-section="home" style="color: var(--text-primary); font-weight: 600;">Home</a>
+                    <a href="#apps" class="nav-link" data-section="apps">Apps</a>
+                    <a href="#company" class="nav-link" data-section="company">About</a>
+                    <a href="#contact" class="btn-primary nav-link" data-section="contact" style="background: var(--text-primary); color: var(--bg-dark);">Contact</a>
+                </nav>
+                <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <section id="proyectos" class="container">
-        <h2>Nuestros Proyectos</h2>
-        <div class="grid">
-            <!-- Proyecto 1 -->
-            <div class="card animate" style="animation-delay: 0.2s;">
-                <img src="./assets/cimok-reader.png" alt="CIMOK Reader Mockup" class="card-img" loading="lazy">
-                <div class="card-body">
-                    <span class="tag">CIMOK | Historias Digitales</span>
-                    <h3>CIMOK</h3>
-                    <p>Lector premium de cómics con estadísticas en tiempo real, seguimiento de lectura y una interfaz
-                        optimizada para dispositivos móviles.</p>
-                    <div class="project-lead">
-                        <span class="lead-label">Responsable:</span>
-                        <span class="lead-name">Ing. Jeferson Gil</span>
+    <div class="mobile-nav-overlay" id="mobile-overlay">
+        <nav class="mobile-nav-links">
+            <a href="#home" class="nav-link" data-section="home">Home</a>
+            <a href="#apps" class="nav-link" data-section="apps">Apps</a>
+            <a href="#company" class="nav-link" data-section="company">About</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="hero page-section">
+            <div class="container">
+                <div class="hero-bg-grid"></div>
+                <div class="hero-content">
+                    <a href="#cimok-showcase" class="hero-badge reveal">
+                        <span class="badge-new">Nuevo</span>
+                        CIMOK
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <h1 class="reveal">Creamos el futuro de las <br><span class="hero-status-tag">aplicaciones<span class="status-dot"></span></span></h1>
+                    <p class="reveal">Apurid Studios diseña productos digitales de alto impacto con una obsesión por
+                        minimalismo, la calidad y el rendimiento.</p>
+                    <div class="hero-actions reveal" style="transition-delay: 0.2s;">
+                        <a href="#contact" class="btn-primary nav-link">Contáctanos</a>
+                        <a href="#company" class="btn-secondary nav-link">Conoce más</a>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Proyecto 2 -->
-            <div class="card animate" style="animation-delay: 0.4s;">
-                <img src="./assets/ai-book-reader.png" alt="AI Book Reader Mockup" class="card-img" loading="lazy">
-                <div class="card-body">
-                    <span class="tag">Education / AI</span>
-                    <h3>Lector de Libros IA</h3>
-                    <p>Plataforma de lectura enriquecida con funciones de inteligencia artificial para resúmenes y
-                        asistencia inteligente.</p>
-                    <div class="project-lead">
-                        <span class="lead-label">Responsable:</span>
-                        <span class="lead-name">Carlos Santos</span>
-                    </div>
+        <section id="cimok-showcase" class="feature-showcase">
+            <div class="container container-narrow">
+                <div class="showcase-visual tilt-hover">
+                    <div class="bg-glow orange"></div>
+                    <div class="bg-glow blue"></div>
+                    <img src="assets/CB1.png" alt="CIMOK Banner" class="mockup-window fade-image" style="width: 85%; margin: 0 auto; display: block;">
+                </div>
+                <div class="showcase-content">
+                    <h2>La lectura de cómics, <br>llevada al futuro</h2>
+                    <p>Lector premium con estadísticas en tiempo real, seguimiento de progreso milimétrico y una
+                        interfaz fluida optimizada al extremo para dispositivos móviles.</p>
+                    <a href="#apps" class="feature-link nav-link"><span class="mono-label">1.0</span> CIMOK &rarr;</a>
                 </div>
             </div>
+        </section>
 
-            <!-- Proyecto 3 -->
-            <div class="card animate" style="animation-delay: 0.6s;">
-                <img src="./assets/coming-soon.png" alt="Coming Soon Placeholder" class="card-img" loading="lazy">
-                <div class="card-body">
-                    <span class="tag">Innovation</span>
-                    <h3>Proyecto X</h3>
-                    <p>En desarrollo. Una nueva solución centrada en la experiencia de usuario y tecnología moderna.</p>
-                    <div class="project-lead">
-                        <span class="lead-label">Responsable:</span>
-                        <span class="lead-name">Aun por asignar</span>
+        <section class="feature-showcase section-offset">
+            <div class="container container-narrow">
+                <div class="showcase-visual tilt-hover">
+                    <div class="bg-glow purple"></div>
+                    <div class="mockup-window dark-mode">
+                        <div class="mockup-body timeline-mockup">
+                            <div class="timeline-header">
+                                <span>JUN</span><span>JUL</span><span>AUG</span>
+                            </div>
+                            <div class="timeline-grid">
+                                <div class="timeline-task"><span>🛠 UI Refresh</span></div>
+                                <div class="timeline-bar" style="width: 60%; left: 10%">Core Screens</div>
+                                <div class="timeline-bar red" style="width: 30%; left: 70%">Polish</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="showcase-content">
+                    <h2>Tu biblioteca entera, <br>en el bolsillo</h2>
+                    <p>Transforma tu dispositivo en un santuario de lectura inmersiva. Sincroniza, organiza y
+                        personaliza cada página de tu colección sin interrupciones ni distracciones.</p>
+                    <a href="#apps" class="feature-link nav-link"><span class="mono-label">2.0</span> MiLibro &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSICION APPS -->
+        <div class="section-transition-block">
+            <div class="container">
+                <h2 class="transition-title reveal">Ecosistema</h2>
+                <div class="transition-line animated-divider"></div>
             </div>
         </div>
-    </section>
 
-    <section id="experiencia" class="container">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="animate">
-            <h2>Nuestra Especialidad</h2>
-            <p>En ApuridStudio, nos enfocamos en aplicaciones que no solo funcionan, sino que cautivan. Dominamos el
-                desarrollo responsive y la integración de IA para crear productos premium.</p>
+        <!-- APPS SECTION -->
+        <section id="apps" class="ecosystem-section page-section">
+            <div class="container">
+                <div class="hero-content" style="text-align: left; margin-bottom: 4rem;">
+                    <h1 class="reveal">Nuestras <br><span class="hero-status-tag">Apps<span class="status-dot"></span></span></h1>
+                    <p class="reveal" style="max-width: 650px; margin: 2rem 0 0;">Soluciones digitales diseñadas para entusiastas del rendimiento, la estética y la utilidad sin fricciones.</p>
+                </div>
+                <div class="apps-bento-grid">
+                    <div class="app-card featured reveal" style="--hover-color: var(--primary-orange);">
+                        <div class="app-badge-status">v1.0 Stable</div>
+                        <div class="app-icon-visual">C</div>
+                        <div class="app-content-box">
+                            <h2>CIMOK</h2>
+                            <p>El estándar de oro para la lectura de cómics. Sincronización en la nube, estadísticas de progreso y una interfaz que desaparece para dejar paso al arte.</p>
+                            <div class="hero-actions" style="justify-content: flex-start; margin-top: 2rem;">
+                                <a href="#" class="btn-primary">Descargar</a>
+                                <a href="#" class="btn-secondary">Saber más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-card standard reveal" style="--hover-color: var(--primary-green);">
+                        <div class="app-badge-status">Beta Public</div>
+                        <div class="app-icon-visual">M</div>
+                        <div class="app-content-box">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">MiLibro</h3>
+                            <p>Tu biblioteca infinita. Lector de E-books optimizado con IA para resúmenes y anotaciones inteligentes.</p>
+                        </div>
+                    </div>
+                    <div class="app-card standard reveal" style="--hover-color: var(--primary-blue);">
+                        <div class="app-badge-status">WIP</div>
+                        <div class="app-icon-visual">V</div>
+                        <div class="app-content-box">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Velo Pay</h3>
+                            <p>La capa de pagos invisible. Integración milimétrica para aplicaciones SaaS modernas.</p>
+                        </div>
+                    </div>
+                    <div class="app-card standard reveal" style="--hover-color: #a855f7; grid-column: span 4;">
+                        <div class="app-badge-status">Internal</div>
+                        <div class="app-icon-visual" style="width: 60px; height: 60px;">A</div>
+                        <div class="app-content-box" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                            <div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Aether Cloud</h3>
+                                <p>Infraestructura escalable para el siglo XXI.</p>
+                            </div>
+                            <a href="#" class="btn-secondary">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANSICION COMPANY -->
+        <div class="section-transition-block">
+            <div class="container">
+                <h2 class="transition-title reveal">La Empresa</h2>
+                <div class="transition-line animated-divider"></div>
+            </div>
         </div>
-    </section>
 
-    <section id="desarrolladores" class="container">
-        <h2>Nuestro Equipo</h2>
-        <div class="dev-container animate">
-            <div class="dev-card">
-                <div class="dev-image-container">
-                    <img src="./assets/Jeferson.jpg" alt="Ing. Jeferson Gil" class="dev-img" loading="lazy">
-
+        <!-- COMPANY SECTION -->
+        <section id="company" class="company-section page-section">
+            <div class="container">
+                <div class="hero-content" style="margin-bottom: 4rem;">
+                    <h1 class="reveal">Construyendo el <span>Futuro</span>.</h1>
+                    <p class="reveal">En Apurid Studios, creemos que el software no solo debe funcionar, debe inspirar. Somos un equipo de ingenieros y diseñadores apasionados.</p>
                 </div>
-                <div class="dev-info">
-                    <span class="tag">Ingeniero de Software</span>
-                    <h3>Ing. Jeferson Gil</h3>
-                    <p class="dev-bio">Especialista en desarrollo de software de alto rendimiento con una sólida
-                        formación en ciberseguridad. Enfocado en crear soluciones digitales robustas, seguras y
-                        escalables que transforman ideas en realidad.</p>
-                    <div class="dev-skills">
-                        <span class="skill-pill">Fullstack</span>
-                        <span class="skill-pill">IA & Automatización</span>
-                        <span class="skill-pill">Master en Ciberseguridad</span>
+                <div class="company-grid" style="max-width: 900px; margin: 0 auto;">
+                    <div class="company-info reveal">
+                        <p style="font-size: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">Nuestra misión es empoderar a empresas e individuos a través de productos digitales que combinan estética premium, rendimiento milimétrico y una experiencia de usuario sin precedentes. No hacemos simplemente código, esculpimos experiencias.</p>
+                        
+                        <div class="philosophy-grid" style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid var(--border-subtle);">
+                            <div class="philosophy-card" style="--hover-color: var(--primary-orange);">
+                                <div class="p-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                </div>
+                                <h3>Obsesión Pixel-Perfect</h3>
+                                <p>No lanzamos nada que no luzca espectacular. Diseño a nivel de alta costura digital y animaciones a 60 FPS garantizados.</p>
+                            </div>
+                            <div class="philosophy-card" style="--hover-color: var(--primary-blue);">
+                                <div class="p-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                                </div>
+                                <h3>Arquitectura de Acero</h3>
+                                <p>Código sin basura. Desarrollamos bajo rigurosas metodologías de Ingeniería para lograr escalabilidad y plataformas resilientes.</p>
+                            </div>
+                            <div class="philosophy-card" style="--hover-color: var(--primary-green);">
+                                <div class="p-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                </div>
+                                <h3>Rendimiento Nativo</h3>
+                                <p>Optimización milimétrica. Interfaces sumamente livianas logrando tiempos de carga instantáneos y cero deuda técnica.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Carlos Santos -->
-            <div class="dev-card animate" style="animation-delay: 0.2s;">
-                <div class="dev-image-container">
-                    <div class="dev-placeholder">
-                        CS
-                        <span>Developer</span>
+        <section class="stacking-team-section">
+            <div class="container container-narrow">
+                <h2 class="reveal" style="text-align: center; margin-bottom: 6rem; font-size: clamp(3rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1;">Nuestro <span style="color: var(--primary-orange);">Equipo</span></h2>
+                <div class="stacking-container">
+                    <div class="stack-card" style="top: 120px;">
+                        <div class="stack-layout">
+                            <div class="stack-visual">
+                                <img src="assets/jeferson.jpg" alt="Ing. Jeferson Gil">
+                            </div>
+                            <div class="stack-data">
+                                <span class="role-marker">INGENIERO DE SOFTWARE</span>
+                                <h2>Ing. Jeferson <span class="accent-text">Gil</span></h2>
+                                <p>Especialista en desarrollo de software de alto rendimiento con una sólida formación en ciberseguridad. Enfocado en crear soluciones digitales robustas, seguras y escalables que transforman ideas en realidad.</p>
+                                <div class="stack-tags">
+                                    <span class="tag">Fullstack</span>
+                                    <span class="tag">IA & Automatización</span>
+                                    <span class="tag">Ciberseguridad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stack-card" style="top: 140px;">
+                        <div class="stack-layout">
+                            <div class="stack-visual placeholder-visual">
+                                <span>CS</span>
+                            </div>
+                            <div class="stack-data">
+                                <span class="role-marker">DESARROLLADOR</span>
+                                <h2>Carlos <span class="accent-text">Santos</span></h2>
+                                <p>Desarrollador enfocado en automatización, inteligencia artificial y optimización de rendimiento. Apasionado por convertir ideas en funciones escalables y sistemas digitales ininterrumpidos.</p>
+                                <div class="stack-tags">
+                                    <span class="tag">Automatización</span>
+                                    <span class="tag">Inteligencia Artificial</span>
+                                    <span class="tag">Optimización</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stack-card" style="top: 160px;">
+                        <div class="stack-layout">
+                            <div class="stack-visual placeholder-visual">
+                                <span>AL</span>
+                            </div>
+                            <div class="stack-data">
+                                <span class="role-marker">UX/UI DESIGNER</span>
+                                <h2>Ana <span class="accent-text">López</span></h2>
+                                <p>Especialista en diseño de interfaces y experiencia de usuario. Dedicada a crear flujos de trabajo interactivos, accesibles y estéticamente impecables para productos digitales de alta demanda.</p>
+                                <div class="stack-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">Prototipado</span>
+                                    <span class="tag">Animación UI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stack-card" style="top: 180px;">
+                        <div class="stack-layout">
+                            <div class="stack-visual placeholder-visual">
+                                <span>RD</span>
+                            </div>
+                            <div class="stack-data">
+                                <span class="role-marker">DATA ENGINEER</span>
+                                <h2>Roberto <span class="accent-text">Díaz</span></h2>
+                                <p>Ingeniero enfocado en el modelado algorítmico, pipelines pesados y arquitectura en la nube. Obsesionado con el rendimiento, la escalabilidad extrema y la analítica en tiempo real.</p>
+                                <div class="stack-tags">
+                                    <span class="tag">Big Data</span>
+                                    <span class="tag">Cloud Architecture</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="dev-info">
-                    <span class="tag">Desarrollador</span>
-                    <h3>Carlos Santos</h3>
-                    <p class="dev-bio">Desarrollador enfocado en la creación de aplicaciones y sistemas digitales. Interesado en automatización, inteligencia artificial y optimización de rendimiento. Apasionado por convertir ideas en soluciones funcionales y escalables.</p>
-                    <div class="dev-skills">
-                        <span class="skill-pill">Automatización</span>
-                        <span class="skill-pill">IA</span>
-                        <span class="skill-pill">Optimización</span>
-                    </div>
-                </div>
+            </div>
+            <div style="height: 100px;"></div>
+        </section>
+
+        <!-- TRANSICION CONTACT -->
+        <div class="section-transition-block">
+            <div class="container">
+                <h2 class="transition-title reveal">Contacto</h2>
+                <div class="transition-line animated-divider"></div>
             </div>
         </div>
-    </section>
 
-    <section id="contacto" class="container">
-        <h2>¿Tienes una idea?</h2>
-        <p style="text-align: center;">Hablemos sobre cómo podemos ayudarte a construir tu próximo gran proyecto.</p>
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section page-section">
+            <div class="container">
+                <div class="contact-header reveal">
+                    <h1>Let's build the <span>future</span> together.</h1>
+                    <p>Cuéntanos sobre tu próximo proyecto, solicita una demo o simplemente di hola. Nuestro equipo te responderá en breve.</p>
+                </div>
+                <div class="contact-container reveal">
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" placeholder="¿Cómo podemos ayudarte?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos los detalles..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary form-submit">Enviar Mensaje</button>
+                    </form>
+                    
+                    <div class="contact-info">
+                        <h3>Información Directa</h3>
+                        <div class="info-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>hello@apurid.com</span>
+                        </div>
+                        <div class="info-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>+1 (555) 018-934</span>
+                        </div>
+                        <div class="info-item location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>San Francisco, CA<br>Remote Global</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <form class="form-simple animate">
-            <div class="input-group">
-                <label>Nombre</label>
-                <input type="text" placeholder="Tu nombre" required>
-            </div>
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="tu@email.com" required>
-            </div>
-            <div class="input-group">
-                <label>Mensaje</label>
-                <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
-        </form>
-    </section>
-
-    <footer>
+    <footer class="footer" style="margin-top: 4rem;">
         <div class="container">
-            <p>&copy; 2026 ApuridStudio. Todos los derechos reservados.</p>
+            <div class="footer-content reveal">
+                <div class="footer-logo">
+                    <img id="footer-logo" src="assets/ApuridLogoModoOscuro.svg" alt="Apurid Studios Logo"
+                        class="footer-logo-img">
+                    <p>© 2026 Apurid Studios. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">X (Twitter)</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
