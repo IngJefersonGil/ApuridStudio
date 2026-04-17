@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Reveal animations using highly optimized IntersectionObserver
     const revealElements = document.querySelectorAll('.reveal');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth scroll for anchors with custom easing (easeOutQuart)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             if (targetId !== '#' && targetId.length > 1) {
                 const target = document.querySelector(targetId);
                 if (target) {
                     e.preventDefault();
-                    
+
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = targetPosition - 80;
 
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     window.requestAnimationFrame(animation);
-                    
+
                     // Note: URL hash update optional
                     // history.pushState(null, null, targetId);
                 }
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Active Nav State based on scroll
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links .nav-link');
-    
+
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 current = section.getAttribute('id');
             }
         });
-        
+
         navItems.forEach(item => {
             item.style.fontWeight = '400';
             if (item.getAttribute('href') === `#${current}`) {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             mobileOverlay.classList.toggle('active');
-            
+
             // Lock body scroll when menu is open
             if (mobileOverlay.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
@@ -158,6 +158,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             });
+        });
+    }
+
+    // Contact Form submission logic
+    const contactForm = document.querySelector('.contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = contactForm?.querySelector('.form-submit');
+
+    if (contactForm && formStatus && submitBtn) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Set loading state
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = 'Enviando...';
+            submitBtn.disabled = true;
+            formStatus.style.display = 'none';
+            formStatus.className = 'form-status';
+
+            const formData = new FormData(contactForm);
+            const data = {
+                nombre: formData.get('name'),
+                email: formData.get('email'),
+                asunto: formData.get('subject'),
+                mensaje: formData.get('message')
+            };
+
+            try {
+                const response = await fetch('https://apurid-contact-api.apuridstudio.workers.dev', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    formStatus.innerText = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
+                    formStatus.classList.add('success');
+                    formStatus.style.display = 'flex';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Server responded with an error');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                formStatus.innerText = 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
+                formStatus.classList.add('error');
+                formStatus.style.display = 'flex';
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
         });
     }
 

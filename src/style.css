@@ -1333,6 +1333,53 @@ footer {
     font-size: 1rem;
 }
 
+.form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--text-secondary);
+    border-color: var(--text-secondary);
+}
+
+.form-status {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: none;
+    animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+}
+
+.form-status.success {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.form-status.error {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(232, 95, 50, 0.1);
+    border: 1px solid rgba(232, 95, 50, 0.2);
+    color: var(--primary-orange);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .contact-info {
     padding: 2rem;
     background: rgba(0, 0, 0, 0.3);
